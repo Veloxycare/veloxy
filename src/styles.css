@@ -1,0 +1,13 @@
+  .footer-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-postion:center;
+    background-image: url("https://www.veloxy.care/wp-content/uploads/2024/07/map_pattern_3.png");
+    z-index: 0;
+    opacity: 0.03;
+  }

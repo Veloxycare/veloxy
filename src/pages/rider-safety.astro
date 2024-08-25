@@ -1,0 +1,22 @@
+---
+import DialogBox from "../components/howitworks/DialogBox";
+import Hero from "../components/howitworks/HeroHowItWorks.astro";
+import Team from "../components/Team.astro";
+import Layout from "../layouts/Layout.astro";
+import * as data from "../data/ridersafety.md";
+const dialogueData = data.frontmatter;
+const oddIndexedData = dialogueData?.filter((_:any, index:any) => index % 2 !== 0);
+const evenIndexedData = dialogueData?.filter((_:any, index:any) => index % 2 === 0);
+const riderSafety = {
+  title1: "Rider Safety",
+  title2: "Rules",
+  desc: "Experience peace of mind with our comprehensive safety guidelines. Your safety is our top priority throughout every journey. ",
+};
+const titleteam = "Ensuring Your  Safety and Comfort with Veloxy CareRide"
+---
+<Layout title="Rider Safety" description="Rider Safety" currentPath="/rider-safety" >
+    <Hero title1={riderSafety.title1} title2={riderSafety.title2} desc={riderSafety.desc}  />
+    <DialogBox {evenIndexedData}  {oddIndexedData}  client:load />
+    <Team {titleteam} />
+
+</Layout>

@@ -1,0 +1,20 @@
+---
+const {title1, title2, desc } = Astro.props
+---
+
+<div
+  class="container flex flex-wrap lg:max-w-[1340px] relative px-1 lg:px-5 py-14 lg:py-24 -z-10 mx-auto bg-overlay bg-primary rounded-3xl text-center mb-10"
+>
+  <div class="container lg:max-w-[700px] mx-auto">
+    <h2 class="text-4xl lg:text-6xl text-white font-extrabold mb-4">
+      <span
+        class="text-4xl lg:text-6xl font-extrabold text-[#FFB703] underline italic"
+        >{title1}</span
+      >
+      {title2}
+    </h2>
+    <p class="flex text-white px-10 text-wrap items-center justify-center text-md lg:text-lg">
+      {desc}
+    </p>
+  </div>
+</div>

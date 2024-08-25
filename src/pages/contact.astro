@@ -1,0 +1,18 @@
+---
+import HeroHowItWorks from "../components/howitworks/HeroHowItWorks.astro"
+import Layout from "../layouts/Layout.astro"
+import Section1 from "../components/contact/Section1.astro"
+import Contactform from "../components/contact/Contactform"
+import * as data from "../data/contactus.md";
+const herodata = data.frontmatter.ContactUshero
+---
+
+<Layout title="Contact"  description="Contact" currentPath="/contact" >
+
+    <HeroHowItWorks title1= {herodata?.title1} title2={herodata?.title2} desc={herodata?.desc}  />
+    <div class="container lg:max-w-[1140px] mx-auto  flex flex-1 flex-col lg:flex-row  items-center justify-center mb-10" >
+        <Section1 data={data.frontmatter} />
+        <Contactform  client:load />
+    </div>
+
+</Layout>

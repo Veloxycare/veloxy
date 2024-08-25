@@ -1,0 +1,18 @@
+---
+import { Image } from "astro:assets";
+
+const { post } = Astro.props;
+// console.log(post)
+---
+
+
+<div class="max-w-lg  rounded overflow-hidden shadow-lg m-4">
+  <a href={`/blogs/${post.slug}`} >
+  <img  class="w-full h-40 object-cover" src="/images/thumbnail/how-veloxy-care-ride-s-senior-care-program-is-making-a-difference-in-the-lives-of-seniors/thumbnail.jpg" alt={"image"}>
+  <div class="px-2 py-4">
+    <div class="font-bold text-md mb-3 line-clamp-2">{post.entry.title}</div>
+    <p class="text-primary  text-sm mt-2 line-clamp-5">{post.entry.description}</p>
+    <button class="bg-primary text-md text-white  p-2 mt-4 rounded-lg w-1/3" >Read More</button>
+  </div>
+</a>
+</div>

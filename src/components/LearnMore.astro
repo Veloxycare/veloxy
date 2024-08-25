@@ -1,0 +1,86 @@
+---
+import "/public/Styles/global.css";
+const currentPath = Astro.url.pathname;
+// console.log(currentPath);
+const { title, description_2, features, contactNumber, image_2 } = Astro.props;
+// console.log(image_2);
+---
+
+<div
+  class="relative flex flex-col-reverse lg:flex-row flex-1 gap-10 container -z-10 px-5 lg:px-0 lg:w-[1140px] mx-auto mb-10"
+>
+  <div
+    class={`left-section w-full  ${currentPath === "/" ? "animate-on-scroll" : "animate-on-scroll-2"}`}
+  >
+    <h1
+      class="text-primary text-3xl lg:text-5xl font-extrabold mb-6 text-center lg:text-left"
+    >
+      {title}
+    </h1>
+    <p class="text-primary text-md mb-5 text-center lg:text-left">
+      {description_2}
+    </p>
+    {
+      (currentPath === "/" || currentPath === "/driver") && (
+        <div class="flex flex-1 gap-5 mb-6 items-center justify-center">
+          {features.map((item: any) => (
+            <div class="flex flex-col lg:flex-row gap-5 items-center ">
+              <div class="bg-[#FFB703] flex items-center justify-center w-16 h-16 rounded-full shrink-0">
+                <img src={item?.icon} width="30" alt={item?.iconAlt} />
+              </div>
+              <div>
+                <h2 class="text-primary font-bold text-md lg:text-2xl">
+                  {item?.text}
+                </h2>
+              </div>
+            </div>
+          ))}
+        </div>
+      )
+    }
+    <div
+      class={`flex gap-10 lg:gap-20 ${currentPath === "/" ? "items-center justify-center" : "items-center lg:items-left justify-center lg:justify-normal"} `}
+    >
+      <button class="button py-4 px-2 lg:px-6">
+        <i class="fa-solid fa-circle-arrow-right"></i>
+        Learn More
+      </button>
+      {
+        currentPath === "/" && (
+          <div class="flex items-center gap-1">
+            <span>
+              <i class="fa-solid fa-phone" style="color: #3C3E83;" />
+            </span>
+            <span>
+              <p class="text-primary font-bold text-md lg:text-xl">
+                {contactNumber}
+              </p>
+            </span>
+          </div>
+        )
+      }
+    </div>
+  </div>
+  <div class="right-section w-full flex items-center justify-center">
+    <img src={image_2} alt="LearnMore" />
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-fadeInUp");
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    document.querySelectorAll(".animate-on-scroll").forEach((element) => {
+      observer.observe(element);
+    });
+    document.querySelectorAll(".animate-on-scroll-2").forEach((element) => {
+      observer.observe(element);
+    });
+  });
+</script>

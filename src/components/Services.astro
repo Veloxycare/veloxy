@@ -1,0 +1,26 @@
+---
+import * as data from '../data/services.md';
+const servicesData = data.frontmatter;
+---
+
+
+<section class="container lg:max-w-[1140px] mx-auto text-center py-12">
+    <div class="w-full lg:max-w-[600px] mx-auto" >
+  <h2 class="text-3xl md:text-4xl lg:text-5xl text-center text-primary font-extrabold mb-4">{servicesData?.title}</h2>
+  <p class="mb-8">{servicesData?.description}</p>
+</div>
+  <div class=" relative mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    {servicesData.services.map((item:any) => (
+      <div class="max-w-[400px] mx-auto items-center justify-center relative" >
+        <img class="relative rounded-3xl" src={item?.image} alt="Store shopping">
+        <div class="px-5 py-4 items-center justify-center absolute -top-6 right-5 bg-[#FFB703] rounded-full ">
+          <i class={`${item.icon} ${item.icon_color} text-2xl`}></i>
+        </div>
+        <div class="relative -top-10 max-w-[290px] md:max-w-[220px] lg:max-w-[290px] mx-auto bg-primary text-white text-center p-8 md:p-8 rounded-3xl bg-overlay">
+          <h2 class="text-lg md:text-lg lg:text-2xl font-bold mb-2">{item?.title}</h2>
+          <p class="text-wrap">{item?.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

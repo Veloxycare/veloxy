@@ -1,0 +1,20 @@
+---
+import LearnMore from '../components/LearnMore.astro';
+import StoreButtons from '../components/StoreButtons.astro';
+import Layout from '../layouts/Layout.astro';
+import * as data from "../data/StoreButtons.md";
+import * as learnmore from "../data/Learnmore.md";
+import Whyus from '../components/driver/Whyus.astro';
+const learnmoreHero = learnmore.frontmatter.learnmoreDriver;
+
+
+const {title, description:description_2, features, image:image_2} = learnmoreHero
+const {title_1, title_2, title_3, description, image, phone } = data.frontmatter.storeButtonsDriver;
+---
+
+<Layout title="Driver" desc="Driver" currentPath="/driver"  >
+    <StoreButtons {title_1} {title_2} {title_3} {description} {image} {phone} />
+    <LearnMore {title} {description_2} {features}  {image_2}  />
+    <Whyus/>
+
+</Layout>   

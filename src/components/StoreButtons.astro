@@ -1,0 +1,58 @@
+---
+const { title_1, title_2, title_3, description, image, phone } = Astro.props;
+---
+
+
+
+<div
+  class="relative container px-5 lg:w-[1340px] flex flex-col lg:flex-row mx-auto z-0 mb-10 footer-image bg-primary bg-cover bg-center bg-overlay rounded-3xl"
+>
+  <div class="py-20 px-5 lg:px-20">
+    <h1
+      class="text-white font-extrabold text-center lg:text-left text-5xl md:text-6xl lg:text-7xl mb-4 animate-on-scroll"
+    >
+      {title_1}
+      <p
+        class="text-[#FFB703] underline text-center font-extrabold text-5xl md:text-6xl lg:text-7xl my-1 lg:my-0 animate-on-scroll"
+      >
+        {title_2}
+      </p>
+      {title_3}
+    </h1>
+    <p
+      class="text-white text-sm lg:text-md text-center lg:text-left mb-4 animate-on-scroll"
+    >
+      {description}
+    </p>
+    <div class="flex   items-center lg:items-start justify-center lg:justify-normal">
+      <a href=""
+        ><img width="400" src={phone} alt="buttons" /></a
+      >
+    </div>
+  </div>
+  <div>
+    <img
+      class="relative lg:absolute top-0 lg:-top-[14px] -right-5  lg:right-0 bg-cover rounded-3xl h-full lg:h-[500px] animate-on-scroll"
+      src={image}
+      alt=""
+    />
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-fadeInUp");
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    document.querySelectorAll(".animate-on-scroll").forEach((element) => {
+      observer.observe(element);
+    });
+  });
+</script>
+

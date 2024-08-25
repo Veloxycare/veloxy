@@ -1,0 +1,48 @@
+bgImage: /images/footer/bgImage.png
+logo: /images/logo.svg
+QuickLinks:
+  - text: 'Home   '
+    link: /
+  - text: 'Driver '
+    link: /driver
+  - text: Driver Safety
+    link: /driver-safety
+  - text: Rider Safety
+    link: /rider-safety
+  - text: Contact
+    link: /contact
+Info:
+  - text: 'Terms & Conditions '
+    link: /terms-and-conditions
+  - text: 'Privacy Policy '
+    link: /privacy-policy
+  - text: How It Works
+    link: /how-it-works
+  - text: Compliance
+    link: /compliance
+  - text: About Us
+    link: /about-us
+  - text: Community Guidelines
+    link: /community-guidelines
+PlatformPolicies:
+  - text: '- Zero Tolerance Intoxicating Substances '
+    link: /zero-tolerance-intoxicating-substances-policy
+  - text: '    - Non-discrimination'
+    link: /non-discrimination-policy
+  - text: '     - Veloxy CareRide TNC Record Retention Policy     '
+    link: /veloxy-care-ride-tnc-record-retention-policy
+  - text: >-
+      -Driver certifications to acquire within 60 days of driving for Veloxy
+      CareRide
+    link: >-
+      /driver-certifications-to-acquire-within-60-days-of-driving-for-veloxy-care-ride
+disclaimer: The Compassionate Choice For Seniors and Cancer Patients.
+footerBottomLeft:
+  text: USA
+contactDetails:
+  text: Number
+  number: '+1 (877) 368-3569 '
+EmailDetails:
+  text: Email
+  Email: support@veloxy.care
+footerBottomRight: []

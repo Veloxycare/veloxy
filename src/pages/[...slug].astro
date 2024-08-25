@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro'
+import MarkdownPageLayout from '../layouts/MarkdownPageLayout.astro';
+import {getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+	const docs = await getCollection('legaldocuments');
+  return docs.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+<Layout title="Veloxy" description="Veloxy CareRide" currentPath="/" >
+    <MarkdownPageLayout frontmatter={entry.data} >
+		<Content/>
+	</MarkdownPageLayout>
+</Layout>

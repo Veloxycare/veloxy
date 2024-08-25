@@ -1,0 +1,21 @@
+---
+const {  frontmatter } = Astro.props;
+---
+<div>
+<div
+  class="container flex flex-wrap lg:max-w-[1340px] relative px-5 py-14 lg:py-24 -z-10 mx-auto bg-overlay bg-primary rounded-3xl text-center mb-20"
+>
+  <div class="container mx-auto">
+    <h2 class="text-4xl lg:text-7xl text-white font-extrabold ">
+{frontmatter?.title}
+    </h2>
+  </div>
+</div>
+
+<div class="flex flex-col justify-center items-center">
+</div>
+<div class="w-full mx-auto mt-1 lg:mt-5 px-10 pb-20 text-justify text-pretty text-primary text-md">
+  <slot/>
+</div>
+</div>
+</div>

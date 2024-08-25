@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import keystaticConfig from "../../../keystatic.config";
+import { createReader } from "@keystatic/core/reader";
+import BlogCard from "../../components/BlogCard.astro";
+const reader = createReader(process.cwd(), keystaticConfig)
+const blogData = await reader.collections.blogs.all();
+---
+
+<Layout title="Blogs" description="blogs" currentPath="/blogs" >
+    <div class="w-full lg:w-[1100px] mx-auto  py-8">
+        <div class="  grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogData.map((post) => (
+            <BlogCard post={post} />
+          ))}
+
+        </div>
+      </div>
+</Layout>

@@ -1,0 +1,31 @@
+logo: /images/logo.png
+menu:
+  - text: Home
+    link: /
+    submenu: []
+  - text: How it Works
+    link: /how-it-works
+    submenu: []
+  - text: Driver
+    link: /driver
+    submenu: []
+  - text: Safety
+    link: '#'
+    icon: /images/navbar/menu/3/icon.svg
+    submenu:
+      - text: Driver Safety
+        link: /driver-safety
+      - text: Riders Safety
+        link: rider-safety
+  - text: Driver Requirements
+    link: /driver-requirements
+    submenu: []
+  - text: Blogs
+    link: /blogs
+    submenu: []
+  - text: Contact
+    link: /contact
+    submenu: []
+contactButton:
+  text: Contact
+  link: /contact

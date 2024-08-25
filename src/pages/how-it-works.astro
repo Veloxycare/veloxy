@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/howitworks/HeroHowItWorks.astro';
+import LearnMore from '../components/LearnMore.astro';
+import DialogBox from '../components/howitworks/DialogBox.jsx'
+import * as data from "../data/dialogue.md";
+import * as learnmore from "../data/Learnmore.md";
+const dialogueData = data.frontmatter;
+const oddIndexedData = dialogueData?.filter((_:any, index:any) => index % 2 !== 0);
+const evenIndexedData = dialogueData?.filter((_:any, index:any) => index % 2 === 0);
+const howitworks = learnmore.frontmatter.learnmorehowitworks;
+const {title, description:description_2, image:image_2} = howitworks
+const features: any =[];
+const howitworkshero = {
+  title1: "How it",
+  title2: "Works",
+  desc: "Download the Veloxy CareRide Mobile app for Driver or Passenger on Apple and Google or contact our support for more info.support@veloxy.care",
+};
+---
+
+<Layout title="How it Works" description="How it works"  currentPath="/how-it-works" >
+    <Hero title1={howitworkshero.title1} title2={howitworkshero.title2} desc={howitworkshero.desc}   />
+    <LearnMore {title} {description_2} {features} {image_2} />
+    <DialogBox  oddIndexedData={oddIndexedData}   evenIndexedData={evenIndexedData} client:load />
+</Layout>   

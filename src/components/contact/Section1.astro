@@ -1,0 +1,26 @@
+---
+const {data} = Astro.props;
+// console.log(data)
+---
+
+
+<section class="container lg:w-1/2 mx-auto flex flex-col justify-center p-8  lg:p-0 space-y-4 rounded-lg">
+    <h2 class="text-3xl lg:text-5xl text-wrap text-primary font-extrabold">{data.Section1.heading}</h2>
+    <p class="text-md text-primary text-wrap">
+        {data.Section1.desc}
+    </p>
+    <div class="flex flex-col gap-10" >
+    {data.Icons.map((item:any)=>(
+    <div class="flex items-center space-x-4">
+      <div class="bg-yellow-500 h-12 w-12 flex items-center justify-center rounded-full">
+        <i class={item.img} style="color: #3C3E83;" />
+      </div>
+      <div>
+        <p class="font-bold text-lg text-primary">{item.heading}</p>
+        <p class="text-primary text-md" >{item.text}</p>
+      </div>
+    </div>
+    ))}
+    </div>
+
+  </section>

@@ -1,0 +1,152 @@
+---
+import '/public/Styles/global.css';
+import { createReader } from "@keystatic/core/reader";
+import keystaticConfig from "../../keystatic.config";
+import ProfileMenu from "../components/ProfileMenu";
+import { Image } from 'astro:assets';
+const reader = createReader(process.cwd(), keystaticConfig);  
+const navbar = await reader.singletons.navbar.read();
+
+const {currentPath} = Astro.props
+
+
+---
+
+<div class="container lg:max-w-[1340px] mx-auto z-10 flex items-center justify-between p-4">
+  <!-- Logo -->
+  <div class="flex items-center">
+    <Image
+      src=`${navbar?.logo}`
+      alt="Veloxy"
+      width={100}
+      height={100}
+      class=""
+    />
+  </div>
+
+  <!-- Burger Icon for Mobile -->
+  <button
+    class="lg:hidden flex items-center p-2 text-lg"
+    id="burger-icon"
+    aria-label="Toggle menu"
+  >
+    <i id="burger-icon-icon" class="fa-solid fa-bars fa-xl"></i>
+  </button>
+
+  <!-- Desktop Menu -->
+  <ul class="hidden lg:flex space-x-10  font-bold text-lg text-primary">
+    {navbar?.menu.map((item) => (
+      <li class="relative group font-bold text-md">
+        <a
+          href={item.submenu.length > 0 ? " " : item?.link}
+          class={`flex gap-2 transition-colors duration-200 hover:text-[#FFB703] ${currentPath === item.link ? "text-[#FFB703]" : "text-primary"}`}
+        >
+          {item.text}
+          {item.icon && (
+            <i class="mt-1 fa-solid fa-chevron-down"></i>
+          )}
+        </a>
+
+        {item.submenu.length > 0 && (
+          <ul class="absolute left-0 right-0 mt-1 bg-primary text-white hidden group-hover:block shadow-lg rounded-3xl py-2 w-48">
+            {item.submenu.map((subitem) => (
+              <li>
+                <a
+                  href={subitem.link}
+                  class="block px-4 py-2 hover:bg-[#0208F1] transition-colors duration-200"
+                >
+                  {subitem.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </li>
+    ))}
+  </ul>
+
+
+  <!-- Profile Menu for Desktop -->
+  <div class="hidden lg:block ">
+    <ProfileMenu client:load />
+  </div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="absolute top-20 left-0 z-10 w-full rounded-2xl bg-primary text-white shadow-lg lg:hidden hidden">
+  <ul class="flex flex-col items-left">
+    {navbar?.menu.map((item, index) => (
+      <li class="relative group hover:bg-[#0208F1] p-4">
+        {item.submenu.length > 0 ? (
+          <a
+            class={`flex justify-between ${currentPath === item.link ? "text-[#FFB703]" : "hover:text-[#FFB703]"}`}
+          >
+           <p> {item.text} </p>
+            {item.icon && item.submenu.length > 0 && (
+              <i class="jus mt-1 fa-solid fa-chevron-down"></i>
+            )}
+          </a>
+        ) : (
+          <a
+            href={item.link}
+            data-index={index}
+            class={`flex justify-between ${currentPath === item.link ? "text-[#FFB703]" : "hover:text-[#FFB703]"}`}
+          >
+            {item.text}
+            {item.icon && item.submenu.length > 0 && (
+              <i class="jus mt-1 fa-solid fa-chevron-down"></i>
+            )}
+          </a>
+        )}
+        {item.submenu.length > 0 && (
+          <ul class="bg-[#0208F1] mt-4 text-white hidden submenu-list">
+            {item.submenu.map((subitem) => (
+              <li class="p-4 pl-6 bg-[#0208F1]">
+                <a
+                  href={subitem.link}
+                  class={`flex justify-between ${currentPath === subitem.link ? "text-[#FFB703]" : "hover:text-[#FFB703]"}`}
+                >
+                  {subitem.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </li>
+    ))}
+  </ul>
+  <div class="mx-auto px-4 mb-2">
+    <ProfileMenu client:load />
+  </div>
+</div>
+
+
+
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const burgerIcon = document.getElementById('burger-icon');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuLinks = document.querySelectorAll('#mobile-menu a');
+
+    // Toggle mobile menu visibility
+    burgerIcon?.addEventListener('click', () => {
+      mobileMenu?.classList.toggle('hidden');
+    });
+
+    // Handle submenu toggling
+    menuLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const hasSubmenu = link.nextElementSibling && link.nextElementSibling.classList.contains('submenu-list');
+        if (hasSubmenu) {
+          e.preventDefault(); // Prevent the default navigation behavior
+          const submenu = link.nextElementSibling;
+          submenu.classList.toggle('hidden'); // Toggle the submenu visibility
+        }
+      });
+    });
+  });
+</script>
+
+
+

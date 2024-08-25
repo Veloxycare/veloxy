@@ -1,0 +1,22 @@
+---
+const {titleteam} = Astro.props
+---
+<div class="container lg:max-w-[1120px] mx-auto mb-10" >
+    <div class="flex flex-col items-center justify-center px-3 lg:px-48">
+        <h2 class="text-4xl lg:text-5xl text-primary leading-9 lg:leading-[48px] font-extrabold text-center text-wrap " >
+            {titleteam}
+        </h2>
+        <p class="text-lg  px-10 lg:px-20 text-primary mt-10 font-normal text-center text-wrap" >
+            Remember to always report any safety concerns or incidents to Veloxy CareRide customer support at support@veloxy.care/
+            </p>
+        <img class="inline-block w-5/6 lg:w-1/2 rounded-full  ring-white" src="/images/team/team_image.png" alt="team">
+
+        <a href="/contact">
+            <button class="button  transition-transform duration-300 ease-in-out px-10 py-4 transform hover:-translate-y-2">
+              Contact us
+            </button>
+          </a>
+          
+               
+    </div>
+</div>

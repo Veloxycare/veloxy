@@ -1,0 +1,77 @@
+---
+import * as learnmore from "../../data/Whyus.md";
+const data = learnmore.frontmatter.data;
+---
+<style>
+@media (min-width: 1024px) { /* Large screens and up */
+  .lg-vertical-line {
+    position: relative;
+  }
+
+  .lg-vertical-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.4;
+    width: 0.5px;
+    height: 220px;
+    background-color: #fff; /* Customize the color as needed */
+  }
+
+  .lg-vertical-line:last-child::after {
+    display: none;
+  }
+}
+
+</style>
+
+<div class="container relative bg-primary text-white p-10 lg:p-24 rounded-3xl shadow-lg mx-auto bg-overlay mb-20">
+  <div class="section-1 flex flex-col lg:flex-row text-left mb-8 animate-on-scroll">
+    <h1 class="text-3xl lg:text-6xl mb-8 lg:mb-0 font-bold">
+      Why Drive with Veloxy CareRide?
+    </h1>
+    <p class="text-md text-center">
+      At Veloxy CareRide, we value our drivers and are committed to providing
+      the best experience possible. Here's what you can expect when you join our
+      team:
+    </p>
+  </div>
+  <div class="section-2 grid grid-cols-1 md:grid-cols-3 mt-5 gap-4 lg:gap-16 ">
+    {data?.map((item: any, index: number) => (
+      <div class="col lg-vertical-line flex flex-col lg:p-0 text-center items-center lg:items-start animate-on-scroll-2" key={index}>
+        <span class="bg-[#FFB703] p-4 w-16 h-16 rounded-full">
+          <img src={item?.icon} alt={item?.title} />
+        </span>
+        <h2 class="mt-4 text-2xl font-bold">{item?.title}</h2>
+        <p class="text-center lg:text-left lg:text-balance font-normal mt-2">
+          {item?.description}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-fadeInUp");
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    document.querySelectorAll(".animate-on-scroll").forEach((element) => {
+      observer.observe(element);
+    });
+
+    setTimeout(() => {
+      document.querySelectorAll(".animate-on-scroll-2").forEach((element) => {
+        observer.observe(element);
+      });
+    }, 4000); // 4-second delay before observing the elements
+  });
+</script>

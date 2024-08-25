@@ -1,0 +1,13 @@
+---
+const {  frontmatter } = Astro.props;
+console.log("frontmatter",frontmatter)
+---
+  <div class="mb-10 w-full lg:w-[1100px] mx-auto" >
+  <div class="flex flex-col justify-center items-center px-5 lg:px-0">
+    <img class="mt-4" width="100%" height="600px"  src={`${frontmatter?.thumbnail}`} alt="image" />
+    <!-- <h1 class="text-3xl">{frontmatter?.title}</h1> -->
+  </div>
+  <div class="w-full mx-auto mt-5 px-10 lg:px-5 text-justify text-lg">
+    <slot/>
+  </div>
+</div>

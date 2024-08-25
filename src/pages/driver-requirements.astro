@@ -1,0 +1,22 @@
+---
+import HeroHowItWorks from "../components/howitworks/HeroHowItWorks.astro"
+import Layout from "../layouts/Layout.astro"
+import * as data from "../data/driverreq.md";
+import DialogBox from "../components/howitworks/DialogBox";
+const dialogueData = data.frontmatter;
+const oddIndexedData = dialogueData?.filter((_:any, index:any) => index % 2 !== 0);
+const evenIndexedData = dialogueData?.filter((_:any, index:any) => index % 2 === 0);
+
+const driverreq = {
+    title1: "Driver",
+    title2:"Requirements",
+    desc:"By meeting below requirements, our drivers are equipped to provide exceptional care and support to seniors and cancer patients, ensuring a safe and comfortable ride. "
+
+}
+
+---
+
+<Layout title="Driver Requirements" description="Driver Requirements" currentPath="/driver-requirements" >
+    <HeroHowItWorks  title1={driverreq.title1} title2={driverreq.title2} desc={driverreq.desc}   />
+    <DialogBox {oddIndexedData} {evenIndexedData} client:load />
+</Layout>

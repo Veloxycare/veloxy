@@ -1,0 +1,88 @@
+---
+import { createReader } from '@keystatic/core/reader'
+import keystaticConfig from '../../keystatic.config'
+const reader = createReader(process.cwd(), keystaticConfig)
+const footer = await reader.singletons.footer.read()
+---
+
+<style>
+
+  .icon-background {
+    background-color: white;
+    padding: 14px;
+    border-radius: 10px; 
+    margin: 2px; 
+    display: inline-block; 
+  }
+
+  .icon-background i {
+    color: #3C3E83; 
+  }
+
+</style>
+
+<footer 
+  class="relative container mx-auto py-20 px-16  footer-image bg-primary bg-cover bg-center bg-overlay rounded-3xl "
+  style={`background-image: url(${footer?.bgImage}), z-index: 0`}
+>
+  <div class="relative container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 z-10">
+    
+    <!-- Company Info -->
+    <div class="flex flex-col " >
+      <img src={footer?.logo} alt="Veloxy- CareRide" width="200" height="200" class="mx-auto lg:mx-0 items-center lg:items-start  justify-center ">
+      <p  class="text-white text-md text-center lg:text-left mt-5 mb-4">{footer?.disclaimer}</p>
+    </div>
+    
+    <!-- Quick Links -->
+    <div class="text-center lg:text-left" >
+      <h3 class="text-white font-bold mb-4">Quick Links</h3>
+      <ul class="space-y-3">
+        {footer?.QuickLinks.map((link: any) => (
+          <li><a href={link.link} class="text-white">{link.text}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Info -->
+    <div class="text-center lg:text-left"  >
+      <h3 class="text-white font-bold mb-4">Info</h3>
+      <div class="flex flex-col gap-2">
+        {footer?.Info.map((item: any) => (
+          <a class="text-white" href={item.link}>{item.text}</a>
+        ))}
+      </div>
+    </div>
+
+    <!-- Platform Policies -->
+    <div class="text-center lg:text-left"  >
+      <h3 class="text-white font-bold mb-4">Platform Policies</h3>
+      <div class="flex flex-col gap-2">
+        {footer?.PlatformPolicies.map((item: any) => (
+          <a class="text-white" href={item.link}>{item.text}</a>
+        ))}
+      </div>
+    </div>
+
+  </div>
+  <div class="relative container grid lg:grid-cols-4 grid-cols-1 mx-auto mt-8 pt-4 z-10 text-center lg:text-left">
+    <div class="flex items-center gap-5 justify-center lg:justify-start mb-4 lg:mb-0">
+      <i class="fa-solid fa-xl fa-location-dot" style="color: #FFB703;"></i>
+      <h3 class="text-white font-bold">{footer?.footerBottomLeft.text}</h3>
+    </div>
+    <div class="flex items-center gap-5 justify-center lg:justify-start mb-4 lg:mb-0">
+      <i class="fa-solid fa-xl fa-phone" style="color: #FFB703;"></i>
+      <h3 class="text-white font-bold">{footer?.contactDetails.number}</h3>
+    </div>
+    <div class="flex items-center gap-5 justify-center lg:justify-start mb-4 lg:mb-0">
+      <i class="fa-solid fa-xl fa-envelope-open-text" style="color: #FFB703;"></i>
+      <h3 class="text-white font-bold">{footer?.EmailDetails.Email}</h3>
+    </div>
+    <div class=" justify-center ">
+      <span class="icon-background"><i class="fa-brands fa-xl fa-facebook"></i></span>
+      <span class="icon-background"><i class="fa-brands fa-xl fa-instagram"></i></span>
+      <span class="icon-background"><i class="fa-brands fa-xl fa-twitter"></i></span>
+      <span class="icon-background"><i class="fa-brands fa-xl fa-youtube"></i></span>
+      <span class="icon-background"><i class="fa-brands fa-xl fa-reddit-alien"></i></span>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.button {
+  @apply bg-primary text-white font-bold rounded-full hover:bg-blue-800 transition-colors duration-200 text-sm ;
+}
+.button-phone {
+  @apply text-primary  lg:text-white bg-white lg:bg-primary font-bold rounded-full hover:bg-[#FFB703] lg:hover:bg-blue-800 transition-colors duration-200 text-sm ;
+
+}
+.normal-flex{
+  @apply flex items-center
+}
+.button-center {
+  @apply flex items-center justify-center
+}
+
+.input-class{
+  @apply block w-full h-10 outline-none rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm ;
+}
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3C3E83;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
