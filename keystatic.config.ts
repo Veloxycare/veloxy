@@ -156,6 +156,7 @@ export default config({
         footerBottomRight: fields.array(
           fields.object({
             text: fields.text({ label: 'Text' }),
+            link:fields.text({label:"Links"}),
             icons:fields.image({label: 'Icons', directory:'/public/images/footer', publicPath:'/images/footer/'}),
           }),
           {

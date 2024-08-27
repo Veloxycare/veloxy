@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
 const plugin = require('tailwindcss/plugin');
+
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
@@ -17,7 +18,6 @@ export default {
           "0%": { opacity: 0, transform: "translateY(0px)" },
           "100%": { opacity: 1, transform: "translateY(0)" },
         },
-        
       },
       animation: {
         fadeInUp: "fadeInUp 3s ease-in forwards",
@@ -25,8 +25,8 @@ export default {
     },
   },
   plugins: [
-    plugin(function({ addUtilities }) {
-      addUtilities({
+    plugin(function({ addComponents }) {
+      addComponents({
         '.bg-overlay::before': {
           content: '""',
           position: 'absolute',
@@ -36,12 +36,10 @@ export default {
           height: '100%',
           'background-size': 'cover',
           'background-position': 'center',
-          'background-image': 'url("https://www.veloxy.care/wp-content/uploads/2024/07/map_pattern_3.png")',
+          'background-image': 'url("https://veloxy.care/images/footer/bgImage.png")',
           'z-index': '0',
-          opacity: '0.04',
+          opacity: '0.05',
         },
-      }, {
-        variants: ['responsive'],
       });
     }),
   ],

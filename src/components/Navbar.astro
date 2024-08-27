@@ -88,7 +88,7 @@ const {currentPath} = Astro.props
         ) : (
           <a
             href={item.link}
-            data-index={index}
+
             class={`flex justify-between ${currentPath === item.link ? "text-[#FFB703]" : "hover:text-[#FFB703]"}`}
           >
             {item.text}
