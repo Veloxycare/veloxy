@@ -40,7 +40,7 @@
 
 "
 - id: "7"
-  title: "7. Safety Reminders"
+  title: "7. Passenger Safety Reminders"
   description: "
    - Always check the vehicle's safety features before riding.
    - Keep your belongings secure and out of sight.
