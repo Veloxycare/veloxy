@@ -37,7 +37,7 @@
 
 "
 - id: "6"
-  title: "6. Behicle Capacity"
+  title: "6. Vehicle Capacity"
   description: "
    - Only transport the number of riders specified in the ride request.
    - Ensure all riders are safely seated and secured before departing.
