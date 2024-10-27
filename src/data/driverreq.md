@@ -20,8 +20,8 @@
   title: "3. Certifications:"
   description: "
    - Valid CPR/First Aid certification.
-   - Valid Defensive Driving certification.
-   - Valid Patient Care and Handling certification.
+   
+   
 
 
 
