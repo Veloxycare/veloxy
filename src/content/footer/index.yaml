@@ -31,11 +31,9 @@ PlatformPolicies:
     link: /non-discrimination-policy
   - text: '     - Veloxy CareRide TNC Record Retention Policy     '
     link: /veloxy-care-ride-tnc-record-retention-policy
-  - text: >-
-      -Driver certifications to acquire upon driving for Veloxy
-      CareRide
-    link: >-
-      /driver-certifications-to-acquire-upon-driving-for-veloxy-care-ride
+  - text: '     - Driver certifications to acquire upon driving for Veloxy
+      CareRide '
+    link: /driver-certifications-to-acquire-upon-driving-for-veloxy-care-ride
 disclaimer: The Compassionate Choice For Seniors and Cancer Patients.
 footerBottomLeft:
   text: USA
