@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ClipLoader from "react-spinners/ClipLoader.js";
 const AuthLogin = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [userType, setUserType] = useState("passenger");
+  const [userType, setUserType] = useState("patient");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -71,7 +71,7 @@ const AuthLogin = () => {
                 className="block w-full h-10 mt-2 rounded-md border-0 p-1.5 bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-1 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-2"
               >
                 <option value="driver">Driver</option>
-                <option value="passenger">Passenger</option>
+                <option value="patient">Patient</option>
               </select>
             </div>
             <div>

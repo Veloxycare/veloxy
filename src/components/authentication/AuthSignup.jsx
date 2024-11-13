@@ -10,16 +10,18 @@ const AuthSignup = () => {
     name: "",
     email: "",
     password: "",
-    mobile_no: "",
-    userType: "passenger",
+    country_code:"+91",
+    phone_number: "",
+    region: "IN",
+    userType: "patient",
     gender: "male"
   });
   const finalFormData = {
     name: '',
     email: '',
     password: '',
-    mobile_no: '',
-    userType: "passenger",
+    phone_number: '',
+    userType: "patient",
     gender: "male"
   };
   const [showPassword, setShowPassword] = useState(false);
@@ -33,9 +35,42 @@ const AuthSignup = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    if (name === 'phone_number') {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: `${prevFormData.country_code}${value}`
+      }));
+    }
+    else{
+      setFormData((prevFormData) => ({
+       ...prevFormData,
+        [name]: value
+    }));
+  }
+  };
+
+  const regions=[
+    {
+      country_code: "+91",
+      country_name: "India",
+      region:"IN",
+    },
+    {
+      country_code: "+1",
+      country_name: "USA",
+      region:"US",
+    }
+  ]
+
+  const handlePhoneChange = (e) => {
+    const { name, value } = e.target;
+  
+    const [country_code, region] = value.split('-');
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: value
+      country_code,
+      region
     }));
   };
 
@@ -45,8 +80,10 @@ const AuthSignup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     setIsLoading(true); // Show the progress circle
     try {
+      console.log("formDatass",formData)
       const response = await register(formData);
       if (response.status === 200) {
         toast.success("Registration Successful.");
@@ -63,7 +100,7 @@ const AuthSignup = () => {
   const handleVerifyOtp = async () => {
     setIsLoading(true); // Show the progress circle
     try {
-      const response = await verifyOtp(formData.mobile_no, otp, formData.userType);
+      const response = await verifyOtp(formData.country_code, formData.phone_number, otp, formData.userType);
       toast.success("OTP verified successfully!");
       setShowOtpContainer(false);
       setFormData(finalFormData);
@@ -80,7 +117,7 @@ const AuthSignup = () => {
   const ResendOtp = async () => {
     setIsLoading(true)
     try {
-      await sendOtp(formData.mobile_no, formData.userType);
+      await sendOtp(formData.country_code, formData.phone_number, formData.userType);
       setIsLoading(false)
       toast.success("OTP resent successfully!");
 
@@ -169,18 +206,29 @@ const AuthSignup = () => {
             </div>
 
             <div>
-              <label htmlFor="mobile_no" className="block text-sm font-medium leading-2 text-primary">
+              <label htmlFor="phone_number" className="block text-sm font-medium leading-2 text-primary">
                 Mobile Number
               </label>
-              <div className="mt-1">
+              <div className="mt-1 flex">
+                 <select
+                    name="country_code"
+                    value={formData.country_code}
+                    onChange={handlePhoneChange}
+                    className="input-class w-20 md:basis-3/12 sm:leading-1 mr-2"
+                  >
+                    <option value="+91-IN">+91 (India)</option>
+                    <option value="+1-US">+1 (USA)</option>
+                    <option value="+1-CA">+1 (Canada)</option>
+                    {/* Add more country codes as needed */}
+                  </select>
                 <input
-                  id="mobile_no"
-                  name="mobile_no"
+                  id="phone_number"
+                  name="phone_number"
                   type="tel"
-                  value={formData.mobile_no}
+                  value={formData.phone_number}
                   onChange={handleChange}
                   required
-                  className="input-class sm:leading-2"
+                  className="input-class md:basis-9/12 sm:leading-3"
                 />
               </div>
             </div>
@@ -199,7 +247,7 @@ const AuthSignup = () => {
                   className="input-class sm:leading-2"
                 >
                   <option value="driver">Driver</option>
-                  <option value="passenger">Passenger</option>
+                  <option value="patient">Patient</option>
                 </select>
               </div>
 
@@ -241,7 +289,7 @@ const AuthSignup = () => {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-10 rounded-lg text-center text-primary shadow-lg">
             <p className="mt-2">You’ve received a four digit code on</p>
-            <p className="mt-1">{formData.mobile_no}</p>
+            <p className="mt-1">{formData.phone_number}</p>
             <p className="mt-1">Please enter it below to continue</p>
             <h3 className="text-xl font-semibold mb-4">Enter OTP</h3>
             <input
