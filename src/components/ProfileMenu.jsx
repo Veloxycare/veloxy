@@ -5,14 +5,17 @@ import { getToken, getUser, logout } from "../utils/auth";
 
 const ProfileMenu = () => {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
-  const [User, setUser] = useState([]);
+  const [User, setUser] = useState({});
   const [token, setToken] = useState();
+ 
+  const getuser = async () => {
+    const userData = await getUser();
+    console.log("userData",userData)
+    setUser(userData);
+  }
+ 
   useEffect(() => {
     setToken(getToken());
-    async function getuser() {
-      const userData = await getUser();
-      setUser(userData);
-    }
     getuser();
   }, []);
 
@@ -31,11 +34,12 @@ const ProfileMenu = () => {
       {token ? (
         <OutsideClickHandler onOutsideClick={() => setDropdownVisible(false)}>
           <div className="relative">
-            {User?.profile_picture_url ? (
-              <img
+            {User?.profile_picture ? (
+              <img style={{ height : 50, width : 50 }}
                 className="rounded-full"
                 onClick={handleProfileClick}
-                src={User?.profile_picture_url}
+                // src={`${MEDIA_URL}${User?.profile_picture}`}
+                src='https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250'
                 alt="user"
               />
             ) : (

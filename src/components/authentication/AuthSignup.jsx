@@ -10,9 +10,19 @@ const AuthSignup = () => {
     name: "",
     email: "",
     password: "",
-    country_code:"+91",
+    country_code:"+1",
     phone_number: "",
-    region: "IN",
+    region: "US",
+    userType: "patient",
+    gender: "male"
+  });
+  const [updatedFormData, setUpdatedFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    country_code:"+1",
+    phone_number: "",
+    region: "US",
     userType: "patient",
     gender: "male"
   });
@@ -36,18 +46,18 @@ const AuthSignup = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === 'phone_number') {
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        [name]: `${prevFormData.country_code}${value}`
-      }));
-    }
-    else{
+    // if (name === 'phone_number') {
+    //   setFormData((prevFormData) => ({
+    //     ...prevFormData,
+    //     [name]: `${prevFormData.country_code}${value}`
+    //   }));
+    // }
+    // else{
       setFormData((prevFormData) => ({
        ...prevFormData,
         [name]: value
     }));
-  }
+  // }
   };
 
   const regions=[
@@ -80,11 +90,15 @@ const AuthSignup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    const updatedFormData = {
+      ...formData,
+      phone_number:`${formData.country_code}${formData.phone_number}`
+    };
+    setUpdatedFormData(updatedFormData)
     setIsLoading(true); // Show the progress circle
     try {
       console.log("formDatass",formData)
-      const response = await register(formData);
+      const response = await register(updatedFormData);
       if (response.status === 200) {
         toast.success("Registration Successful.");
         setShowOtpContainer(true);
@@ -100,7 +114,7 @@ const AuthSignup = () => {
   const handleVerifyOtp = async () => {
     setIsLoading(true); // Show the progress circle
     try {
-      const response = await verifyOtp(formData.country_code, formData.phone_number, otp, formData.userType);
+      const response = await verifyOtp(updatedFormData.country_code, updatedFormData.phone_number, otp, updatedFormData.userType);
       toast.success("OTP verified successfully!");
       setShowOtpContainer(false);
       setFormData(finalFormData);
@@ -117,7 +131,7 @@ const AuthSignup = () => {
   const ResendOtp = async () => {
     setIsLoading(true)
     try {
-      await sendOtp(formData.country_code, formData.phone_number, formData.userType);
+      await sendOtp(updatedFormData.country_code, updatedFormData.phone_number, updatedFormData.userType);
       setIsLoading(false)
       toast.success("OTP resent successfully!");
 

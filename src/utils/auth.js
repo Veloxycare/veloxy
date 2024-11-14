@@ -80,12 +80,12 @@ export const getUser = async () => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => {
-        console.log(response);
-        return response.data.data.user;
-      })
-      .catch((error) => console.log(error));
-    // return response.data;
+      // .then((response) => {
+      //   console.log(response);
+      //   return response.data.data.user;
+      // })
+      // .catch((error) => console.log(error));
+    return response.data.data.user;
   } catch (error) {
     console.error("Error fetching user data:", error);
     throw error;
