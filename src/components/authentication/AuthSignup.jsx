@@ -212,11 +212,10 @@ const AuthSignup = () => {
               <div className="mt-1 flex">
                  <select
                     name="country_code"
-                    value={formData.country_code}
+                    value={`${formData.country_code}-${formData.region}`}
                     onChange={handlePhoneChange}
                     className="input-class w-20 md:basis-3/12 sm:leading-1 mr-2"
                   >
-                    <option value="+91-IN">+91 (India)</option>
                     <option value="+1-US">+1 (USA)</option>
                     <option value="+1-CA">+1 (Canada)</option>
                     {/* Add more country codes as needed */}
