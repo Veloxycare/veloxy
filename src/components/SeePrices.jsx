@@ -31,7 +31,7 @@ const SeePrices = () => {
     e.preventDefault();
 
     if (pickup !== ""  &&  destination !== "") {
-      toast.success("Redirecting to App.")
+      // toast.success("Redirecting to App.")
       window.location.href = "https://apps.apple.com/us/app/veloxy/id6504430463";
       return;
     }
