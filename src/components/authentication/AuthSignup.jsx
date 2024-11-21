@@ -14,7 +14,8 @@ const AuthSignup = () => {
     phone_number: "",
     region: "US",
     userType: "patient",
-    gender: "male"
+    gender: "male",
+    schedule:"morning"
   });
   const [updatedFormData, setUpdatedFormData] = useState({
     name: "",
@@ -118,7 +119,11 @@ const AuthSignup = () => {
       toast.success("OTP verified successfully!");
       setShowOtpContainer(false);
       setFormData(finalFormData);
-      window.location.href = "/";
+      if(userType==="driver"){
+        window.location.href = "/driver-requirements";
+      }else{
+        window.location.href = "/";
+      }
     } catch (error) {
       setIsLoading(false)
       toast.error(error.response?.data?.message || "An error occurred. Please try again.");
@@ -275,12 +280,34 @@ const AuthSignup = () => {
                   onChange={handleChange}
                   className="input-class sm:leading-2"
                 >
-                  <option value="male">male</option>
-                  <option value="female">female</option>
-                  <option value="Other">other</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
             </div>
+
+            {formData.userType==="driver" && (
+              <div className="flex-1">
+                  <label htmlFor="gender" className="block text-sm font-medium leading-2 text-primary">
+                    Driving Schedule
+                  </label>
+                  <select
+                    id="schedule"
+                    name="schedule"
+                    value={formData.schedule}
+                    onChange={handleChange}
+                    className="input-class sm:leading-2"
+                  >
+                    <option value="morning">Morning</option>
+                    <option value="afternoon">Afternoon</option>
+                    <option value="nighttime">Nighttime</option>
+                    <option value="holidays">Holidays</option>
+                    <option value="special_events">Special Events</option>
+
+                  </select>
+                </div>
+              )}
 
             <div>
               <button type="submit" className="flex w-full justify-center rounded-md bg-primary px-3 py-3 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">

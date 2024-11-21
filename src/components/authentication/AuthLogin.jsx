@@ -22,7 +22,11 @@ const AuthLogin = () => {
     try {
       const res = await login(userType, email, password);
       toast.success("Login Sucessful.");
-      window.location.href = "/";
+      if(userType==="driver"){
+        window.location.href = "/driver-requirements";
+      }else{
+        window.location.href = "/";
+      }
     } catch (error) {
       toast.error(error.response.data.message);
     }

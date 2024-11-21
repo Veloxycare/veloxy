@@ -73,18 +73,16 @@ export const getUser = async () => {
     const userType = Cookies.get("userType");
     const id = Cookies.get("id");
     const token = Cookies.get("token");
-    console.log("Cookies.get", Cookies.get("token"));
-    const response = await axios
-      .get(`${API_URL}/api/v1/auth/me`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      // .then((response) => {
-      //   console.log(response);
-      //   return response.data.data.user;
-      // })
-      // .catch((error) => console.log(error));
+    const response = await axios.get(`${API_URL}/api/v1/auth/me`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    // .then((response) => {
+    //   console.log(response);
+    //   return response.data.data.user;
+    // })
+    // .catch((error) => console.log(error));
     return response.data.data.user;
   } catch (error) {
     console.error("Error fetching user data:", error);
