@@ -16,7 +16,7 @@ menu:
       - text: Driver Safety
         link: /driver-safety
       - text: Riders Safety
-        link: rider-safety
+        link: /rider-safety
   - text: Driver Requirements
     link: /driver-requirements
     submenu: []

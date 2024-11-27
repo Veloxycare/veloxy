@@ -239,15 +239,27 @@ const AuthSignup = () => {
                     <option value="+1-CA">+1 (Canada)</option>
                     {/* Add more country codes as needed */}
                   </select>
-                <input
-                  id="phone_number"
-                  name="phone_number"
-                  type="tel"
-                  value={formData.phone_number}
-                  onChange={handleChange}
-                  required
-                  className="input-class md:basis-9/12 sm:leading-3"
-                />
+                  <input
+                    id="phone_number"
+                    name="phone_number"
+                    type="tel"
+                    value={formData.phone_number}
+                    onChange={(e) => {
+                      const value = e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+                      if (value.length <= 10) {
+                        handleChange({
+                          target: {
+                            name: e.target.name,
+                            value,
+                          },
+                        });
+                      }
+                    }}
+                    required
+                    className="input-class md:basis-9/12 sm:leading-3"
+                  />
+
+
               </div>
             </div>
 
@@ -329,7 +341,7 @@ const AuthSignup = () => {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-10 rounded-lg text-center text-primary shadow-lg">
             <p className="mt-2">You’ve received a four digit code on</p>
-            <p className="mt-1">{formData.phone_number}</p>
+            <p className="mt-1">{formData.country_code} {formData.phone_number}</p>
             <p className="mt-1">Please enter it below to continue</p>
             <h3 className="text-xl font-semibold mb-4">Enter OTP</h3>
             <input
