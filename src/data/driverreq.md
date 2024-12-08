@@ -21,7 +21,7 @@
   description: "
    - Valid CPR/FirstAid Certification.
    - 45-60 min online course $5.
-   - www.valuecpr.com/courses/cpr-and-aed-and-first-aid-certification-2024-free/ .
+   - Contact for online course link.
    - Upload pdf certificate once completed.
    - (Within 30 days of driving).
    
