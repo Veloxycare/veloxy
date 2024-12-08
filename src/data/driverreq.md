@@ -19,11 +19,11 @@
 - id: "3"
   title: "3. Certifications:"
   description: "
-   - Valid CPR/FirstAid Certification- 
-   - 45-60 min online course- $4.95 
+   - Valid CPR/FirstAid Certification.
+   - 45-60 min online course- $4.95.
    - https://www.valuecpr.com/courses/cpr-and-aed-and-first-aid-certification-2024-free/ 
-   - Upload pdf certificate once completed 
-   - (Within 30 days of driving)
+   - Upload pdf certificate once completed.
+   - (Within 30 days of driving).
    
    
 
