@@ -7,6 +7,7 @@
    - Must have a clean driving record (no more than 2 moving violations in the past 3 years).
    - Must have a reliable vehicle (4-door sedan or minivan) with a valid registration and insurance.
    - Must have a vehicle no older than 15 yrs old 
+
 "
 - id: "2"
   title: " 2. Specialized Training:"
