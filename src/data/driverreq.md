@@ -6,7 +6,8 @@
    - Must have a valid driver's license.
    - Must have a clean driving record (no more than three minor driving violations in the prior three-year period).
    - Must have a clean background.
-   - Must have a reliable vehicle (4-door sedan or minivan) with a valid registration and insurance.
+   - Must have a reliable vehicle (4-door sedan or minivan).
+   - Must have a valid registration and insurance.
    - Must have a vehicle no older than 15 yrs old. 
    
 "
