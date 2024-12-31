@@ -1,19 +1,62 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import MarkdownPageLayout from '../layouts/MarkdownPageLayout.astro';
-import {getCollection, getEntry } from 'astro:content';
+import Layout from "../layouts/Layout.astro";
+import MarkdownPageLayout from "../layouts/MarkdownPageLayout.astro";
+import { getCollection, getEntry } from "astro:content";
 
 export async function getStaticPaths() {
-	const docs = await getCollection('legaldocuments');
-  return docs.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
+  const docs = await getCollection("legaldocuments");
+  return docs.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
   }));
 }
+
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+const isTCTermlyEmbed = entry.slug === "terms-and-conditions";
+const isPPTermlyEmbed = entry.slug === "privacy-policy";
 ---
-<Layout title="Veloxy" description="Veloxy CareRide" currentPath="/" >
-    <MarkdownPageLayout frontmatter={entry.data} >
-		<Content/>
-	</MarkdownPageLayout>
+
+<Layout title="Veloxy" description="Veloxy CareRide" currentPath="/">
+  <MarkdownPageLayout frontmatter={entry.data}>
+    {
+      isTCTermlyEmbed ? (
+        <div>
+          <div
+            name="termly-embed"
+            data-id="a177a26f-cc06-4900-bb32-89e26f7cdef0"
+          />
+          <script
+            type="text/javascript"
+            set:html={`(function(d, s, id) {
+          var js, tjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "https://app.termly.io/embed-policy.min.js";
+          tjs.parentNode.insertBefore(js, tjs);
+        }(document, 'script', 'termly-jssdk'))`}
+          />
+        </div>
+      ) :isPPTermlyEmbed ? (
+      <div>
+          <div
+            name="termly-embed"
+            data-id="e58274eb-6d61-43fa-93ae-67da18b7fcab"
+          />
+          <script
+            type="text/javascript"
+            set:html={`(function(d, s, id) {
+          var js, tjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "https://app.termly.io/embed-policy.min.js";
+          tjs.parentNode.insertBefore(js, tjs);
+        }(document, 'script', 'termly-jssdk'))`}
+          />
+        </div>
+      ): (
+        <Content />
+      )
+    }
+  </MarkdownPageLayout>
 </Layout>
