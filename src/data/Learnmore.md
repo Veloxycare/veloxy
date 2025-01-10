@@ -1,7 +1,7 @@
 ---
 learnmorehero:
   title: "Delivering Comfort and Care on Every Ride"
-  description: "CareRide is a compassionate and convenient transportation service that helps seniors and cancer patients get the essentials they need, without the hassle of driving or relying on others."
+  description: "CareRide is a compassionate and convenient Non Emergency Medical Transportation Service that helps seniors and cancer patients get the essentials they need, without the hassle of driving or relying on others."
   features:
     - icon: "/images/LearnMore/badge.png"
       iconAlt: "Professional-&-Certified"
