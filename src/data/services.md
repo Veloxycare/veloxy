@@ -1,6 +1,6 @@
 ---
 title: "Book a Ride and Enjoy the Journey"
-description: "At Veloxy CareRide, we provide a range of services designed to support seniors and cancer patients in their daily lives. Our offerings include:"
+description: "At Veloxy CareRide, we provide a range of services designed to support seniors and patients in their daily lives. Our offerings include:"
 services:
   - title: "Store shopping"
     description: "CareRide will pick up seniors and patients from their homes and take them to their preferred grocery store(s) of choice, helping them stock up on essential items."
