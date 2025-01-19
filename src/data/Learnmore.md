@@ -20,7 +20,7 @@ learnmorehowitworks:
 
 learnmoreDriver:
   title: "Enabling Drivers to Serve with Care"
-  description: "Veloxy CareRide offers reliable, compassionate transportation for seniors and cancer patients. Our mission is to provide safe, affordable, and convenient rides, ensuring comfort and care for every journey. Join us in making a positive difference in the lives of those who need it most."
+  description: "Veloxy CareRide offers reliable, compassionate Non-Emergency Medical Transportation for seniors and patients. Our mission is to provide safe, affordable, and convenient rides, ensuring comfort and care for every journey. Join us in making a positive difference in the lives of those who need it most."
   image: "/images/LearnMore/learnmore-3.jpg"
   features:
     - icon: "/images/LearnMore/badge.png"
