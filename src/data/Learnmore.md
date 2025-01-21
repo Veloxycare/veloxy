@@ -1,7 +1,7 @@
 ---
 learnmorehero:
   title: "Delivering Comfort and Care on Every Ride"
-  description: "CareRide is a compassionate and convenient transportation service that helps seniors and cancer patients get the essentials they need, without the hassle of driving or relying on others."
+  description: "CareRide is a compassionate and convenient Non Emergency Medical Transportation Service that helps seniors and cancer patients get the essentials they need, without the hassle of driving or relying on others."
   features:
     - icon: "/images/LearnMore/badge.png"
       iconAlt: "Professional-&-Certified"
@@ -20,7 +20,7 @@ learnmorehowitworks:
 
 learnmoreDriver:
   title: "Enabling Drivers to Serve with Care"
-  description: "Veloxy CareRide offers reliable, compassionate transportation for seniors and cancer patients. Our mission is to provide safe, affordable, and convenient rides, ensuring comfort and care for every journey. Join us in making a positive difference in the lives of those who need it most."
+  description: "Veloxy CareRide offers reliable, compassionate Non-Emergency Medical Transportation for seniors and patients. Our mission is to provide safe, affordable, and convenient rides, ensuring comfort and care for every journey. Join us in making a positive difference in the lives of those who need it most."
   image: "/images/LearnMore/learnmore-3.jpg"
   features:
     - icon: "/images/LearnMore/badge.png"
