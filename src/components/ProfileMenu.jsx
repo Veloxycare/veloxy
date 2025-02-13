@@ -3,6 +3,7 @@ import { CgProfile } from "react-icons/cg";
 import OutsideClickHandler from "react-outside-click-handler";
 import { getToken, getUser, logout } from "../utils/auth";
 
+// profile
 const ProfileMenu = () => {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [User, setUser] = useState({});
