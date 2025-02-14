@@ -167,6 +167,13 @@ declare module 'astro:content' {
   collection: "blogs";
   data: any
 } & { render(): Render[".mdoc"] };
+"veloxy-care-ride-your-trusted-transportation-service-in-jefferson-county-al.mdoc": {
+	id: "veloxy-care-ride-your-trusted-transportation-service-in-jefferson-county-al.mdoc";
+  slug: "veloxy-care-ride-your-trusted-transportation-service-in-jefferson-county-al";
+  body: string;
+  collection: "blogs";
+  data: any
+} & { render(): Render[".mdoc"] };
 };
 "legaldocuments": {
 "about-us.mdoc": {
