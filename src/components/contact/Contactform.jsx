@@ -7,11 +7,11 @@ import { postMessage } from "../../utils/contactform";
 const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     email: "",
     subject: "",
-    comments: "",
+    message: "",
   });
 
   const handleChange = (e) => {
@@ -22,11 +22,11 @@ const ContactForm = () => {
     const nameRegex = /^[A-Za-z]+$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!nameRegex.test(formData.firstName)) {
+    if (!nameRegex.test(formData.first_name)) {
       toast.error("First name should contain alphabets.");
       return false;
     }
-    if (!nameRegex.test(formData.lastName)) {
+    if (!nameRegex.test(formData.last_name)) {
       toast.error("Last name should contain alphabets.");
       return false;
     }
@@ -38,7 +38,7 @@ const ContactForm = () => {
       toast.error("Subject cannot be empty.");
       return false;
     }
-    if (formData.comments.trim() === "") {
+    if (formData.message.trim() === "") {
       toast.error("Comments cannot be empty.");
       return false;
     }
@@ -58,11 +58,13 @@ const ContactForm = () => {
       console.log(res);
       if (res.status === 200) {
         toast.success("Message sent.");
-        setFormData({    firstName: "",
-    lastName: "",
-    email: "",
-    subject: "",
-    comments: "",})
+        setFormData({
+          first_name: "",
+          last_name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
       }
     } catch (error) {
       console.log(error);
@@ -74,102 +76,116 @@ const ContactForm = () => {
 
   return (
     <div>
-    <div className="p-8 " >
-      <form className=" space-y-8">
-        <div className="grid grid-cols-2 gap-4">
+      <div className="p-8 ">
+        <form className=" space-y-8">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label
+                htmlFor="first_name"
+                className="block font-medium text-primary mb-2"
+              >
+                First Name *
+              </label>
+              <input
+                type="text"
+                id="first_name"
+                name="first_name"
+                value={formData.first_name}
+                onChange={handleChange}
+                className="w-full p-2 border border-white h-14 rounded-lg"
+                placeholder="First name here"
+                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="last_name"
+                className="block font-medium text-primary mb-2"
+              >
+                Last Name *
+              </label>
+              <input
+                type="text"
+                id="last_name"
+                name="last_name"
+                value={formData.last_name}
+                onChange={handleChange}
+                className="w-full p-2 border border-white h-14 rounded-lg"
+                placeholder="Last name here"
+                required
+              />
+            </div>
+          </div>
           <div>
-            <label htmlFor="firstName" className="block font-medium text-primary mb-2">
-              First Name *
+            <label
+              htmlFor="email"
+              className="block font-medium text-primary mb-2"
+            >
+              Email Address *
             </label>
             <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              value={formData.firstName}
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
               onChange={handleChange}
               className="w-full p-2 border border-white h-14 rounded-lg"
-              placeholder="First name here"
+              placeholder="Add email"
               required
             />
           </div>
           <div>
-            <label htmlFor="lastName" className="block font-medium text-primary mb-2">
-              Last Name *
+            <label
+              htmlFor="subject"
+              className="block font-medium text-primary mb-2"
+            >
+              Subject *
             </label>
             <input
               type="text"
-              id="lastName"
-              name="lastName"
-              value={formData.lastName}
+              id="subject"
+              name="subject"
+              value={formData.subject}
               onChange={handleChange}
               className="w-full p-2 border border-white h-14 rounded-lg"
-              placeholder="Last name here"
+              placeholder="How can we help you?"
               required
             />
           </div>
-        </div>
-        <div>
-          <label htmlFor="email" className="block font-medium text-primary mb-2">
-            Email Address *
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full p-2 border border-white h-14 rounded-lg"
-            placeholder="Add email"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="subject" className="block font-medium text-primary mb-2">
-            Subject *
-          </label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            className="w-full p-2 border border-white h-14 rounded-lg"
-            placeholder="How can we help you?"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="comments" className="block font-medium text-primary mb-2">
-            Comments / Questions *
-          </label>
-          <textarea
-            id="comments"
-            name="comments"
-            rows={5}
-            value={formData.comments}
-            onChange={handleChange}
-            className="w-full p-2 border border-white h-14 rounded-lg"
-            placeholder="Comments"
-            required
-          ></textarea>
-        </div>
-
-      </form>
-      <button
+          <div>
+            <label
+              htmlFor="comments"
+              className="block font-medium text-primary mb-2"
+            >
+              Comments / Questions *
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={5}
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full p-2 border border-white h-14 rounded-lg"
+              placeholder="Comments"
+              required
+            ></textarea>
+          </div>
+        </form>
+        <button
           type="submit"
           onClick={handleSubmit}
           className="bg-primary text-white px-4 py-2 mt-4 rounded-lg"
           disabled={isLoading}
         >
-         Send Message
+          Send Message
         </button>
-        </div>
+      </div>
       {isLoading && (
         <div className="loader-container">
           <ClipLoader color="#3C3E83" loading={isLoading} size={100} />
         </div>
       )}
-        <ToastContainer />
+      <ToastContainer />
     </div>
   );
 };
