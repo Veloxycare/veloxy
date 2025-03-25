@@ -11,3 +11,11 @@
     z-index: 0;
     opacity: 0.03;
   }
+  .cursor-pointer {
+    pointer-events: auto !important;
+    z-index: 1000;
+  }
+  button {
+    pointer-events: auto !important;
+    z-index: 999;
+  }

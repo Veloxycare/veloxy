@@ -1,8 +1,8 @@
 ---
-const { title_1, title_2, title_3, description, image, phone } = Astro.props;
+const { title_1, title_2, title_3, description, image, phone, google } =
+  Astro.props;
+
 ---
-
-
 
 <div
   class="relative container px-5 lg:w-[1340px] flex flex-col lg:flex-row mx-auto z-0 mb-10 footer-overlay bg-primary bg-cover bg-center bg-overlay rounded-3xl"
@@ -24,35 +24,47 @@ const { title_1, title_2, title_3, description, image, phone } = Astro.props;
     >
       {description}
     </p>
-    <div class="flex   items-center lg:items-start justify-center lg:justify-normal">
-      <a href=""
-        ><img width="400" src={phone} alt="buttons" /></a
-      >
+    <div
+      class="flex items-center lg:items-start justify-center lg:justify-normal gap-3"
+    >
+      <!-- App Store Button -->
+
+      <button id="app-store-btn" type="button" style="cursor: pointer; z-index: 999;">
+        <img src={phone} alt="App Store" width="250" />
+      </button>
+      
+      <button id="play-store-btn" type="button" style="cursor: pointer; z-index: 999;">
+        <img src={google} alt="Google Play Store" width="250" />
+      </button>
+      
+      
     </div>
   </div>
+
   <div>
     <img
-      class="relative lg:absolute top-0 lg:-top-[14px] -right-5  lg:right-0 bg-cover rounded-3xl h-full lg:h-[500px] animate-on-scroll"
+      class="relative lg:absolute top-0 lg:-top-[14px] -right-5 lg:right-0 bg-cover rounded-3xl h-full lg:h-[500px] animate-on-scroll"
       src={image}
-      alt=""
+      alt="Feature Image"
     />
   </div>
 </div>
 
-<script>
+<script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("animate-fadeInUp");
-          observer.unobserve(entry.target);
-        }
-      });
-    });
+    console.log("JavaScript Loaded!");
 
-    document.querySelectorAll(".animate-on-scroll").forEach((element) => {
-      observer.observe(element);
+    document.body.addEventListener("click", (event) => {
+      if (event.target.closest("#app-store-btn")) {
+        console.log("✅ App Store Button Clicked! Redirecting...");
+        window.open("https://apps.apple.com/us/app/veloxy/id6504430463", "_blank");
+      }
+      if (event.target.closest("#play-store-btn")) {
+        console.log("✅ Play Store Button Clicked! Redirecting...");
+        window.open("https://play.google.com/store/apps/details?id=com.veloxycustomer&pli=1", "_blank");
+      }
     });
   });
 </script>
+
 

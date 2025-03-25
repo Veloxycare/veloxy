@@ -8,19 +8,20 @@ import Features from '../components/Features.astro';
 import * as data from "../data/StoreButtons.md";
 import * as learnmore from "../data/Learnmore.md";
 const learnmoreHero = learnmore.frontmatter.learnmorehero;
-import Videoplayer from "../components/Videoplayer"
+import Videoplayer from "../components/Videoplayer";
 
-const {title, description:description_2, features, contactNumber, image:image_2} = learnmoreHero
-const {title_1, title_2, title_3, description, image, phone } = data.frontmatter.storeButtonsHome;
+const { title, description: description_2, features, contactNumber, image: image_2 } = learnmoreHero;
+const { title_1, title_2, title_3, description, image, phone, google } = data.frontmatter.storeButtonsHome;
+console.log("DEBUGGOOGLE",google);
 
 ---
 
-<Layout title="Home " description ="Home page" currentPath="/" >
-  
-   <Hero/>
+<Layout title="Home" description="Home page" currentPath="/">
+   <Hero />
    <Videoplayer client:visible />
-   <StoreButtons {title_1} {title_2} {title_3} {description} {image} {phone} />
+   <StoreButtons {title_1} {title_2} {title_3} {description} {image} {phone} {google} />
    <LearnMore {title} {description_2} {features} {contactNumber} {image_2} />
-   <Services/>
-   <Features/>
+   <Services />
+   <Features />
 </Layout>
+
