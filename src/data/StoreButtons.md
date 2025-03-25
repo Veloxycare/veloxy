@@ -5,7 +5,8 @@ storeButtonsDriver:
   title_3: "and Earn"
   description: "Get the recognition and rewards you deserve for all your hard work."
   image: "/images/StoreButtons/phone.png"
-  phone: "/images/hero/phone.png"
+  phone: "/images/hero/appStore.png"
+  google: "/images/hero/playStore.png"
   
 storeButtonsHome:
   title_1: "Book Your"
