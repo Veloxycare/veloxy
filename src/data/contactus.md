@@ -12,9 +12,9 @@ Icons:
  - img: "fa fa-phone"
    alt: "Phone"
    heading: "Phone Number"
-   text: "+1 (877) 368-3569"
+   text: "+1 (888) 270-0229"
  - img: "fa fa-envelope"
    alt: "email"
    heading: "Our Email"
-   text: "support@veloxy.care"
+   text: "support@veloxycareride.com"
 ---
