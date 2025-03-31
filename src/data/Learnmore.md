@@ -9,7 +9,7 @@ learnmorehero:
     - icon: "/images/LearnMore/save-money.png"
       iconAlt: "Affordable-Prices"
       text: "Affordable Prices"
-  contactNumber: "+1 (877) 368-3569"
+  contactNumber: "+1 (888) 270-0229"
   image: "/images/LearnMore/learnmore.jpg"
 
 

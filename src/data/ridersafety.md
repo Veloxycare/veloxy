@@ -12,19 +12,19 @@
   description: "
    - Ensure the vehicle is clean, well-maintained, and free of any hazards.
    - Check the vehicle's safety features, such as airbags and anti-lock brakes, before starting the ride.
-   - Report any safety concerns or issues to your driver or Veloxy CareRide customer support at support@veloxy.care
+   - Report any safety concerns or issues to your driver or Veloxy CareRide customer support at support@veloxycareride.com
 "
 - id: "3"
   title: "3. Driver Conduct"
   description: "
    - Ensure your driver is licensed, insured, and certified to operate a vehicle.
-   - Report any suspicious or unsafe behavior by your driver to Veloxy CareRide customer support at support@veloxy.care
+   - Report any suspicious or unsafe behavior by your driver to Veloxy CareRide customer support at support@veloxycareride.com
 "
 - id: "4"
   title: "4. Route Safety"
   description: "
    - Ensure you know the route your driver is taking before the ride begins.
-   - Report any changes to the route or unexpected stops to your driver or Veloxy CareRide customer support at support@veloxy.care
+   - Report any changes to the route or unexpected stops to your driver or Veloxy CareRide customer support at support@veloxycareride.com
 "
 - id: "5"
   title: "5. Emergency Procedures"
