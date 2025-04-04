@@ -12,8 +12,6 @@ import Videoplayer from "../components/Videoplayer";
 
 const { title, description: description_2, features, contactNumber, image: image_2 } = learnmoreHero;
 const { title_1, title_2, title_3, description, image, phone, google } = data.frontmatter.storeButtonsHome;
-console.log("DEBUGGOOGLE",google);
-
 ---
 
 <Layout title="Home" description="Home page" currentPath="/">
@@ -25,3 +23,13 @@ console.log("DEBUGGOOGLE",google);
    <Features />
 </Layout>
 
+<!-- Smart banner script (executed after Layout renders) -->
+<script is:inline>
+   var head = document.getElementsByTagName('head')[0],
+       script = document.createElement('script');
+   script.type = 'text/javascript';
+   script.src = 'https://banner.urlgeni.us/smart_banners/875593a3b6d1760b.js?url=' + encodeURI(window.location);
+   console.log("Smart banner script injected:", script.src);
+   head.appendChild(script);
+ </script>
+   
