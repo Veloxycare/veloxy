@@ -141,7 +141,7 @@ declare module 'astro:content' {
   slug: string;
   body: string;
   collection: "Blogs";
-  data: InferEntrySchema<"Blogs">;
+  data: any;
   render(): Render[".md"];
 }>;
 "LegalDocuments": Record<string, {
@@ -149,10 +149,17 @@ declare module 'astro:content' {
   slug: string;
   body: string;
   collection: "LegalDocuments";
-  data: InferEntrySchema<"LegalDocuments">;
+  data: any;
   render(): Render[".md"];
 }>;
 "blogs": {
+"discover-veloxy-careride-affordable-nemt-rates-for-cancer-patients-and-senior-citizens-in-jefferson-and-walker-county-alabama.mdoc": {
+	id: "discover-veloxy-careride-affordable-nemt-rates-for-cancer-patients-and-senior-citizens-in-jefferson-and-walker-county-alabama.mdoc";
+  slug: "discover-veloxy-careride-affordable-nemt-rates-for-cancer-patients-and-senior-citizens-in-jefferson-and-walker-county-alabama";
+  body: string;
+  collection: "blogs";
+  data: any
+} & { render(): Render[".mdoc"] };
 "how-veloxy-care-ride-is-making-a-difference-in-the-lives-of-cancer-patients.mdoc": {
 	id: "how-veloxy-care-ride-is-making-a-difference-in-the-lives-of-cancer-patients.mdoc";
   slug: "how-veloxy-care-ride-is-making-a-difference-in-the-lives-of-cancer-patients";
@@ -245,7 +252,7 @@ declare module 'astro:content' {
   slug: string;
   body: string;
   collection: "pages";
-  data: InferEntrySchema<"pages">;
+  data: any;
   render(): Render[".md"];
 }>;
 "posts": {
@@ -280,5 +287,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = typeof import("../src/content/config.js");
+	export type ContentConfig = never;
 }
