@@ -277,7 +277,7 @@ const AuthSignup = () => {
                   className="input-class sm:leading-2"
                 >
                   <option value="driver">Driver</option>
-                  <option value="patient">Patient</option>
+                  <option value="patient">Passenger</option>
                 </select>
               </div>
 
