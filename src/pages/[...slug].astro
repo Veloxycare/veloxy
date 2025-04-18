@@ -15,6 +15,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 const isTCTermlyEmbed = entry.slug === "terms-and-conditions";
 const isPPTermlyEmbed = entry.slug === "privacy-policy";
+const isACTermlyEmbed = entry.slug === "delete-account";
 ---
 
 <Layout title="Veloxy" description="Veloxy CareRide" currentPath="/">
@@ -29,16 +30,16 @@ const isPPTermlyEmbed = entry.slug === "privacy-policy";
           <script
             type="text/javascript"
             set:html={`(function(d, s, id) {
-          var js, tjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "https://app.termly.io/embed-policy.min.js";
-          tjs.parentNode.insertBefore(js, tjs);
-        }(document, 'script', 'termly-jssdk'))`}
+              var js, tjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "https://app.termly.io/embed-policy.min.js";
+              tjs.parentNode.insertBefore(js, tjs);
+            }(document, 'script', 'termly-jssdk'))`}
           />
         </div>
-      ) :isPPTermlyEmbed ? (
-      <div>
+      ) : isPPTermlyEmbed ? (
+        <div>
           <div
             name="termly-embed"
             data-id="e58274eb-6d61-43fa-93ae-67da18b7fcab"
@@ -46,15 +47,25 @@ const isPPTermlyEmbed = entry.slug === "privacy-policy";
           <script
             type="text/javascript"
             set:html={`(function(d, s, id) {
-          var js, tjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "https://app.termly.io/embed-policy.min.js";
-          tjs.parentNode.insertBefore(js, tjs);
-        }(document, 'script', 'termly-jssdk'))`}
+              var js, tjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "https://app.termly.io/embed-policy.min.js";
+              tjs.parentNode.insertBefore(js, tjs);
+            }(document, 'script', 'termly-jssdk'))`}
           />
         </div>
-      ): (
+      ) : isACTermlyEmbed ? (
+        <div class="min-h-screen">
+          <iframe
+            src="https://app.termly.io/notify/e58274eb-6d61-43fa-93ae-67da18b7fcab"
+            width="100%"
+            height="1000"
+            style="border: none;"
+            title="Delete Account Form"
+          ></iframe>
+        </div>
+      ) : (
         <Content />
       )
     }

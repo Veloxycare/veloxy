@@ -141,7 +141,7 @@ declare module 'astro:content' {
   slug: string;
   body: string;
   collection: "Blogs";
-  data: any;
+  data: InferEntrySchema<"Blogs">;
   render(): Render[".md"];
 }>;
 "LegalDocuments": Record<string, {
@@ -149,7 +149,7 @@ declare module 'astro:content' {
   slug: string;
   body: string;
   collection: "LegalDocuments";
-  data: any;
+  data: InferEntrySchema<"LegalDocuments">;
   render(): Render[".md"];
 }>;
 "blogs": {
@@ -204,6 +204,13 @@ declare module 'astro:content' {
   collection: "legaldocuments";
   data: any
 } & { render(): Render[".mdoc"] };
+"delete-account.mdoc": {
+	id: "delete-account.mdoc";
+  slug: "delete-account";
+  body: string;
+  collection: "legaldocuments";
+  data: any
+} & { render(): Render[".mdoc"] };
 "driver-certifications-to-acquire-upon-driving-for-veloxy-care-ride.mdoc": {
 	id: "driver-certifications-to-acquire-upon-driving-for-veloxy-care-ride.mdoc";
   slug: "driver-certifications-to-acquire-upon-driving-for-veloxy-care-ride";
@@ -252,7 +259,7 @@ declare module 'astro:content' {
   slug: string;
   body: string;
   collection: "pages";
-  data: any;
+  data: InferEntrySchema<"pages">;
   render(): Render[".md"];
 }>;
 "posts": {
@@ -287,5 +294,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = never;
+	export type ContentConfig = typeof import("../src/content/config.js");
 }
